@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- Datasource cfg -->
+
+<bean id="dmds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+<property name="url" value="jdbc:oracle:thin:@localhost:1521:ORCL"/>
+<property name="username" value="system"/>
+<property name="password" value="123"/>
+</bean>
+
+<!--DAO class cfg  -->
+<bean  id ="pDAO" class="com.nt.dao.PatientDAOImpl">
+<constructor-arg name="ds" ref="dmds"/>
+</bean>
+
+
+<!-- Service class cfg -->
+<bean id="pService" class="com.nt.service.PatientServiceImpl">
+<constructor-arg name="dao" ref="pDAO"/>
+</bean>
+
+<!--Controller class cfg -->
+<bean id="controller" class="com.nt.controller.MainController">
+<constructor-arg name="service" ref="pService"/>
+</bean>
+
+
+</beans>
