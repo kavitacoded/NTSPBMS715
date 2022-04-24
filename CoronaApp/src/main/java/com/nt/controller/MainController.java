@@ -22,7 +22,7 @@ public class MainController {
 		CoronaPatientDTO dto=new CoronaPatientDTO();
 		dto.setPname(vo.getPname());
 		dto.setAddr(vo.getAddr());
-		dto.setPerdaycharge(Double.parseDouble(vo.getNoofdays()));
+		dto.setPerdaycharge(Double.parseDouble(vo.getPerdaycharge()));
 		dto.setNoofdays(Double.parseDouble(vo.getNoofdays()));
 		
 		String rmsg=service.patientregister(dto);

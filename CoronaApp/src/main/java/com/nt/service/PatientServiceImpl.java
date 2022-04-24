@@ -22,6 +22,7 @@ public class PatientServiceImpl implements PatientService {
 		CoronaPatientBO pbo=new CoronaPatientBO();
 		pbo.setPname(dto.getPname());
 		pbo.setAddr(dto.getAddr());
+	
 		pbo.setTotal(total);
 		
 		//use 
